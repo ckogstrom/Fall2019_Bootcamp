@@ -1,7 +1,7 @@
 /* Add all the required libraries*/
 var mongoose = require('mongoose'),
-    schema = mongoose.Schema,
-    listing = require('./ListingSchema'),
+    Schema = mongoose.Schema,
+    Listing = require('./ListingSchema'),
     config = require('./config')
 /* Connect to your database using mongoose - remember to keep your key secret*/
 mongoose.connect(config.db.uri, { useNewUrlParser: true ,useUnifiedTopology: true
@@ -25,10 +25,10 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
-  Listing.findOneAndRemove({code: 'CABL'}, function(err, data){
+  Listing.findOneAndRemove({'code': 'CABL'}, function(err, data){
     if(err) return handleError(err);
     console.log(data);
-  })
+  });
 };
 var updatePhelpsLab = function() {
   /*
@@ -49,9 +49,9 @@ var retrieveAllListings = function() {
   Listing.find({},function(err,data){
     if(err) return handleError(err);
     console.log(data);
-};
-
+});
+}
 findLibraryWest();
 removeCable();
-updatePhelpsMemorial();
+updatePhelpsLab();
 retrieveAllListings();

@@ -21,11 +21,15 @@ var listingSchema = new Schema({
 */
 listingSchema.pre('save', function(next) {
   /* your code here */
+  var currentDate = new Date();
 
-  this.updated_at = new Date();
+  this.updated_at = currentDate;
 
   if (!this.created_at)
-    this.created_at = new Date();
+    this.created_at = currentDate;
+
+  if(!this.code || !this.name)
+    throw(err);
 
   next();
 });

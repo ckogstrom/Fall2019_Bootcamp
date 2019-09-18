@@ -26,14 +26,10 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
 
   takenData = JSON.parse(data);
 
-  takenData.entries.forEach(function(entries) {
-    new Listing(entries).save(function(err, entries){
+  Listing.deleteMany({}).then(()=>{
+    takenData.entries.forEach(function(entries) {
+     new Listing(entries).save(function(err, entries){
+     });
     });
-  });
-
+  })
 });
-
-/*  
-  Check to see if it works: Once you've written + run the script, check out your MongoLab database to ensure that 
-  it saved everything correctly. 
- */

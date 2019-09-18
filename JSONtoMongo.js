@@ -24,7 +24,7 @@ mongoose.connect(config.db.uri, {useNewUrlParser: true, useUnifiedTopology: true
 fs.readFile('listings.json', 'utf8', function(err, data) {
   if(err) throw err;
 
-  takenData = JSON.parse(data);   
+  takenData = JSON.parse(data);
 
   takenData.entries.forEach(function(entries) {
     new Listing(entries).save(function(err, entries){

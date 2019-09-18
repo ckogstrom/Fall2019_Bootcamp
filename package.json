@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ckogstrom/Fall2019_Bootcamp#readme",
   "dependencies": {
     "mongoose": "^5.7.1",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "should": "^13.2.3"
   }
 }

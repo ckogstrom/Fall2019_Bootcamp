@@ -13,6 +13,8 @@ var listingSchema = new Schema({
   name: {type: String, required: true},
   coordinates:{latitude:Number, longitude:Number},
   address: String
+  created_at: Date,
+  updated_at: Date,
 });
 
 /* Create a 'pre' function that adds the updated_at (and created_at if not already there) property 
